@@ -102,3 +102,23 @@ ELSE "No"
 END healthcare_benefits
 FROM fortune_companies
 WHERE paid_time_off_days>=15
+
+#List every companies benefits packages (healthcare, maternity leave and PTO) and rate them Excellent, Adequate or Poor?
+
+SELECT company_name, industry, healthcare_benefits, paid_time_off_days
+,CASE
+WHEN healthcare_benefits=1 THEN "Yes"
+ELSE "No"
+END healthcare_benefits
+,CASE
+WHEN maternity_leave_weeks>=12 THEN "Excellent"
+WHEN maternity_leave_weeks>=8 THEN "Adequate" 
+ELSE "Poor"
+END maternity_leave_weeks
+,CASE
+WHEN paid_time_off_days>=20 THEN "Excellent"
+WHEN paid_time_off_days>=15 THEN "Adequate"
+ELSE "Poor"
+END paid_time_off_days
+FROM fortune_companies
+ORDER By company_name asc;
