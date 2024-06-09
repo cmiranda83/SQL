@@ -103,7 +103,7 @@ END healthcare_benefits
 FROM fortune_companies
 WHERE paid_time_off_days>=15
 
-#List every companies benefits packages (healthcare, maternity leave and PTO) and rate them Excellent, Adequate or Poor?
+#List every companies benefits packages (healthcare, maternity leave and PTO) and rate them Excellent, Adequate or Poor.
 
 SELECT company_name, industry, healthcare_benefits, paid_time_off_days
 ,CASE
